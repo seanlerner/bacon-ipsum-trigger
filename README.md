@@ -20,7 +20,7 @@ When your Bacon Ipsum is ready, you'll see `Bacon Ipsum Ready!` in your system t
 
 Your clipboard will now contain Bacon Ipsum that you can paste into your document.
 
-## Clip Trigger
+## About Clip Trigger
 
 Clip Trigger is a background application that monitors clipboard activity. When it sees a predefined trigger copied to the clipboard, it executes a process.
 
