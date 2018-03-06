@@ -6,11 +6,10 @@ This is mainly used for testing Clip Trigger, but could also be useful if your i
 
 ## Getting Started
 
-1. [Download Clip Trigger](https://github.com/seanlerner/clip-trigger-disttribution/blob/master/README.md)
-2. Install and open Clip Trigger
-3. Open the menu from the Clip Trigger icon (in your system tray)
-4. Select Triggers
-5. Click `Install` for this trigger
+1. [Download and Install Clip Trigger](https://github.com/seanlerner/clip-trigger/blob/master/README.md)
+1. Open the menu from the Clip Trigger icon (in your system tray)
+1. Select Triggers
+1. Click `Install` for this trigger
 
 ## Using
 
