@@ -2,22 +2,39 @@ module.exports = class {
 
   constructor() {
     this.trigger = 'bc'
+    this.name    = 'Bacon Ipsum'
+    this.url     = 'https://baconipsum.com/api/?type=meat-and-filler&paras=1&format=text'
+    CT.electron.clipboard.writeText('bc')
   }
 
-  run(resolve, reject) {
-    const url = 'https://baconipsum.com/api/?type=meat-and-filler&paras=1&format=text'
+  run(trigger_run) {
+    this.trigger_run = trigger_run
+    CT.vendor.request(this.url, this.get_bacon.bind(this))
+  }
 
-    CT.vendor.request(url, (err, body, res) => {
-      if (body && body.statusCode == 200) {
-        CT.electron.clipboard.writeText(res)
-        CT.clipboard_monitor.restore_previous_clipboard = false
-        resolve('Bacon Ipsum Ready!')
-      } else {
-        new CT.Reject(reject, err, res, body, __filename)
-      }
+  get_bacon(err, body, res) {
+    if (body && body.statusCode == 200)
+      this.success(res)
+    else if (err && err.code == 'ENOTFOUND')
+      this.fail('Network Error')
+    else
+      this.fail(`Unknown Error: ${err.errno}`)
+  }
 
+  success(res) {
+    CT.electron.clipboard.writeText(res)
+
+    this.trigger_run.resolve({
+      subtitle: 'Bacon Ready!',
+      body:     res
     })
+  }
 
+  fail(body) {
+    this.trigger_run.reject({
+      subtitle: 'Bacon not available right now.',
+      body
+    })
   }
 
 }
