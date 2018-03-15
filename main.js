@@ -4,7 +4,6 @@ module.exports = class {
     this.trigger = 'bc'
     this.name    = 'Bacon Ipsum'
     this.url     = 'https://baconipsum.com/api/?type=meat-and-filler&paras=1&format=text'
-    CT.electron.clipboard.writeText('bc')
   }
 
   run(trigger_run) {
